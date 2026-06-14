@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const LINKS = [
   { href: "#feed", label: "Live", menu: "Live feed", n: "01" },
+  { href: "/terminal", label: "Terminal", menu: "Live terminal", n: "→" },
   { href: "#caps", label: "Capabilities", menu: "Capabilities", n: "02" },
   { href: "#tiers", label: "Tiers", menu: "Score tiers", n: "03" },
   { href: "#how", label: "Method", menu: "Method", n: "04" },
