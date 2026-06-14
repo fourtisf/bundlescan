@@ -21,9 +21,9 @@ const config: Config = {
         mild: "var(--mild)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Clash Display", "sans-serif"],
-        body: ["var(--font-body)", "Switzer", "sans-serif"],
-        mono: ["var(--font-mono)", "Geist Mono", "monospace"],
+        display: ["var(--display)", "Clash Display", "sans-serif"],
+        body: ["var(--body)", "Switzer", "sans-serif"],
+        mono: ["var(--mono)", "Geist Mono", "monospace"],
       },
       transitionTimingFunction: {
         ease: "cubic-bezier(.16,1,.3,1)",

@@ -12,12 +12,22 @@ const globalForRedis = globalThis as unknown as {
 
 const url = process.env.REDIS_URL || "redis://localhost:6379";
 
-const make = () =>
-  new Redis(url, {
-    lazyConnect: false,
+const make = () => {
+  // lazyConnect so importing this module never opens a socket (clean builds);
+  // the first command connects. An error listener prevents unhandled-error
+  // crashes when Redis is briefly unavailable — ioredis auto-reconnects.
+  const client = new Redis(url, {
+    lazyConnect: true,
     maxRetriesPerRequest: 2,
     enableReadyCheck: true,
   });
+  client.on("error", (e) => {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[redis]", (e as Error).message);
+    }
+  });
+  return client;
+};
 
 export const redis = globalForRedis.redis ?? make();
 /** Dedicated connection for SUBSCRIBE (cannot run normal commands). */
