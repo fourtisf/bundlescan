@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E87A6A"/><stop offset="1" stop-color="#D9594A"/></linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="10"/></filter>
+    <radialGradient id="bg" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="#D9594A" stop-opacity="0.16"/><stop offset="1" stop-color="#D9594A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#08080A"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- watermark mark -->
+  <g transform="translate(800 300) rotate(45)" opacity="0.9">
+    <rect x="-60" y="-60" width="120" height="120" rx="20" fill="#D9594A" filter="url(#g)" opacity="0.5"/>
+    <rect x="-60" y="-60" width="120" height="120" rx="20" fill="url(#e)"/>
+  </g>
+
+  <text x="800" y="470" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="22" letter-spacing="8" fill="#84817C">FREE · NO WALLET NEEDED</text>
+  <text x="800" y="560" text-anchor="middle" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="74" letter-spacing="-2" fill="#ECE9E2">Scan any launch in seconds.</text>
+  <text x="800" y="690" text-anchor="middle" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#D9594A">bundlescan.fun</text>
+  <text x="800" y="760" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="22" letter-spacing="3" fill="#84817C">5 free scans/day · live feed · Telegram alerts · Operator from 2 SOL</text>
+
+  <!-- logo -->
+  <g transform="translate(90 70)">
+    <g transform="translate(20 20) rotate(45)">
+      <rect x="-18" y="-18" width="36" height="36" rx="6" fill="none" stroke="#4A4844" stroke-width="2.5"/>
+      <rect x="-10" y="-10" width="20" height="20" rx="5" fill="url(#e)"/>
+    </g>
+    <text x="54" y="29" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="29" fill="#ECE9E2">BundleScan</text>
+  </g>
+</svg>
