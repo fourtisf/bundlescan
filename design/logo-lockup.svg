@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="150" viewBox="0 0 560 150">
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/>
+      <stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <!-- signal-diamond mark -->
+  <g transform="rotate(45 75 75)">
+    <rect x="22" y="22" width="106" height="106" rx="12" fill="none" stroke="#4A4844" stroke-width="3"/>
+    <rect x="44" y="44" width="62" height="62" rx="10" fill="none" stroke="#D9594A" stroke-width="3" opacity="0.55"/>
+    <rect x="56" y="56" width="38" height="38" rx="8" fill="#D9594A" filter="url(#g)" opacity="0.7"/>
+    <rect x="56" y="56" width="38" height="38" rx="8" fill="url(#e)"/>
+  </g>
+  <!-- wordmark (real font is Clash Display 600) -->
+  <text x="170" y="76" dominant-baseline="central"
+        font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700"
+        font-size="56" letter-spacing="-1.5" fill="#ECE9E2">BundleScan</text>
+</svg>

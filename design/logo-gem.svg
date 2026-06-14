@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Concept D — "Gem": single minimal ember diamond with glow + specular
+       sheen. Cleanest app-icon option; scales down to a favicon perfectly. -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EE8B7B"/>
+      <stop offset="0.55" stop-color="#D9594A"/>
+      <stop offset="1" stop-color="#B8493C"/>
+    </linearGradient>
+    <radialGradient id="sheen" cx="0.35" cy="0.3" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="g" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+  </defs>
+  <g transform="rotate(45 128 128)">
+    <rect x="66" y="66" width="124" height="124" rx="22" fill="#D9594A" filter="url(#g)" opacity="0.65"/>
+    <rect x="66" y="66" width="124" height="124" rx="22" fill="url(#e)"/>
+    <rect x="66" y="66" width="124" height="124" rx="22" fill="url(#sheen)"/>
+  </g>
+</svg>

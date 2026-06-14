@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Concept B — "Reticle": X-ray scan target locking onto a launch. Corner
+       brackets = scanning frame, ember core = the insider it found. -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/>
+      <stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <g fill="none" stroke="#84817C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M56 100 V56 H100"/>
+    <path d="M156 56 H200 V100"/>
+    <path d="M200 156 V200 H156"/>
+    <path d="M100 200 H56 V156"/>
+  </g>
+  <g transform="rotate(45 128 128)">
+    <rect x="104" y="104" width="48" height="48" rx="10" fill="#D9594A" filter="url(#g)" opacity="0.7"/>
+    <rect x="104" y="104" width="48" height="48" rx="10" fill="url(#e)"/>
+  </g>
+</svg>
