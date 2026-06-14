@@ -1,0 +1,95 @@
+// BundleScan data model — handoff §5. Postgres only (no MongoDB).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Token {
+  mint           String   @id
+  name           String?
+  ticker         String?
+  deployer       String
+  deploySlot     BigInt
+  deployTs       DateTime
+  platform       String // pumpfun | raydium | pumpswap | other
+  score          Int // 0..100
+  tier           String // TRAP | RIGGED | MILD | CLEAN
+  insiderPct     Float
+  organicPct     Float
+  devPct         Float
+  bundlePct      Float
+  sniperPct      Float
+  bundledCount   Int
+  sniperCount    Int
+  fundingSources Int // distinct funders of insider cluster
+  singleFunder   Boolean
+  insiderHeldPct Float // % of insider supply still held (loaded gun)
+  scannedAt      DateTime @default(now())
+  raw            Json? // replay artifact for re-scoring
+  wallets        Wallet[]
+
+  @@index([tier, scannedAt])
+  @@index([score])
+}
+
+model Wallet {
+  id            String  @id @default(cuid())
+  tokenMint     String
+  token         Token   @relation(fields: [tokenMint], references: [mint], onDelete: Cascade)
+  address       String
+  role          String // bundle | sniper | dev-link
+  supplyPct     Float
+  entrySlot     BigInt
+  acquiredRaw   BigInt // tokens acquired in window
+  currentRaw    BigInt // current balance
+  status        String // holding | dumped | partial
+  fundingSource String?
+
+  @@unique([tokenMint, address])
+  @@index([tokenMint])
+}
+
+model User {
+  id           String      @id @default(cuid())
+  wallet       String      @unique
+  tier         String      @default("scout") // scout | operator | syndicate
+  subExpiresAt DateTime?
+  createdAt    DateTime    @default(now())
+  watchlist    Watchlist[]
+}
+
+model Subscription {
+  id         String   @id @default(cuid())
+  userWallet String
+  txSig      String   @unique
+  amountSol  Float
+  tier       String
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+}
+
+model Watchlist {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mint      String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, mint])
+}
+
+model ScanLog {
+  // rate limiting
+  id         String   @id @default(cuid())
+  ip         String?
+  userWallet String?
+  mint       String
+  createdAt  DateTime @default(now())
+
+  @@index([userWallet, createdAt])
+  @@index([ip, createdAt])
+}
