@@ -1,18 +1,15 @@
 import type { Token, Wallet } from "@prisma/client";
 import { prisma } from "./prisma";
-import { redis, FEED_CHANNEL } from "./redis";
+import { redis } from "./redis";
 import { SCAN_CACHE_TTL_SECONDS } from "./config";
 import { replayLaunch, getTokenMeta } from "./chain";
 import { analyzeLaunch, type AnalyzeDeps } from "./detect";
 import { scoreLaunch } from "./score";
 import { buildVerdict, buildNote, buildStats, enhanceVerdict } from "./verdict";
-import { isValidMint, shortAddr, bigintReplacer } from "./util";
-import type {
-  FeedItem,
-  LaunchFeatures,
-  ScanResult,
-  WalletResult,
-} from "./types";
+import { persistLaunch } from "./persist";
+import { feedItemFromResult, publishFeedItem } from "./stream";
+import { isValidMint, shortAddr } from "./util";
+import type { LaunchFeatures, ScanResult, WalletResult } from "./types";
 
 /**
  * Scan pipeline + cache (handoff Prompt 5 / §2):
@@ -140,73 +137,6 @@ export async function getStoredResult(mint: string): Promise<ScanResult | null> 
   return result;
 }
 
-async function persist(
-  result: ScanResult,
-  features: LaunchFeatures,
-  rawArtifact: unknown,
-): Promise<void> {
-  const tokenData = {
-    name: result.name,
-    ticker: result.ticker,
-    deployer: result.deployer,
-    deploySlot: BigInt(result.deploySlot),
-    deployTs: new Date(result.deployTs),
-    platform: result.platform,
-    score: result.score,
-    tier: result.tier,
-    insiderPct: result.insiderPct,
-    organicPct: result.organicPct,
-    devPct: result.devPct,
-    bundlePct: result.bundlePct,
-    sniperPct: result.sniperPct,
-    bundledCount: result.bundledCount,
-    sniperCount: result.sniperCount,
-    fundingSources: result.fundingSources,
-    singleFunder: result.singleFunder,
-    insiderHeldPct: result.insiderHeldPct,
-    scannedAt: new Date(result.scannedAt),
-    // Strip BigInt before handing to Prisma's Json column.
-    raw: JSON.parse(JSON.stringify(rawArtifact, bigintReplacer)),
-  };
-
-  await prisma.$transaction([
-    prisma.token.upsert({
-      where: { mint: result.mint },
-      create: { mint: result.mint, ...tokenData },
-      update: tokenData,
-    }),
-    prisma.wallet.deleteMany({ where: { tokenMint: result.mint } }),
-    prisma.wallet.createMany({
-      data: features.wallets.map((w) => ({
-        tokenMint: result.mint,
-        address: w.address,
-        role: w.role,
-        supplyPct: w.supplyPct,
-        entrySlot: BigInt(w.entrySlot),
-        acquiredRaw: w.acquiredRaw,
-        currentRaw: w.currentRaw,
-        status: w.status,
-        fundingSource: w.fundingSource,
-      })),
-    }),
-  ]);
-}
-
-/** Publish a freshly-scored launch to the live-feed channel (§8). */
-async function publishFeed(result: ScanResult): Promise<void> {
-  const item: FeedItem = {
-    mint: result.mint,
-    ticker: result.ticker || result.name,
-    ca: result.ca,
-    score: result.score,
-    tier: result.tier,
-    color: result.color,
-    insiderPct: result.insiderPct,
-    scannedAt: result.scannedAt,
-    agoSeconds: 0,
-  };
-  await redis.publish(FEED_CHANNEL, JSON.stringify(item)).catch(() => {});
-}
 
 /**
  * Full on-demand / indexer scan. Returns a cached result when available unless
@@ -287,11 +217,11 @@ export async function scanToken(mint: string, opts: ScanOptions = {}): Promise<S
     totalSupply: replay.totalSupply,
   };
 
-  await persist(result, features, rawArtifact);
+  await persistLaunch(result, features.wallets, rawArtifact);
   await redis
     .set(cacheKey(m), JSON.stringify(result), "EX", SCAN_CACHE_TTL_SECONDS)
     .catch(() => {});
-  await publishFeed(result);
+  await publishFeedItem(feedItemFromResult(result));
 
   return result;
 }

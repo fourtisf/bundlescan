@@ -1,6 +1,7 @@
 import "dotenv/config";
 import type { Bot } from "grammy";
 import { startIndexer } from "./indexer";
+import { startLiveIndexer } from "./live-indexer";
 import { startAlerts } from "./alerts";
 import { createBot } from "@/lib/telegram";
 
@@ -22,6 +23,9 @@ async function main() {
     }
   }
 
+  // Free realtime indexer (PumpPortal WS) — the default new-launch source.
+  if (mode === "all" || mode === "live" || mode === "indexer") startLiveIndexer();
+  // Optional Helius-webhook queue consumer (only does work if a webhook feeds it).
   if (mode === "all" || mode === "indexer") startIndexer();
   if (mode === "all" || mode === "alerts") startAlerts(bot);
 

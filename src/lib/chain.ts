@@ -4,7 +4,7 @@ import {
   type ConfirmedSignatureInfo,
   type ParsedTransactionWithMeta,
 } from "@solana/web3.js";
-import { WINDOW_BLOCKS } from "./config";
+import { WINDOW_BLOCKS, FREE_RPC_URL } from "./config";
 import type { DeployInfo, Platform, ReplayBuy, ReplayResult } from "./types";
 
 /**
@@ -37,18 +37,20 @@ const PARSE_CONCURRENCY = Number(process.env.PARSE_CONCURRENCY || 8);
 
 let _conn: Connection | null = null;
 
-/** Lazily-built RPC connection so importing this module never requires a key. */
+/**
+ * Lazily-built RPC connection. Prefers Helius if a key is set (higher limits +
+ * block history); otherwise falls back to a free public RPC (FREE_RPC_URL) so
+ * on-demand scans work with zero paid infrastructure. Realtime indexing does
+ * NOT use this — it streams from PumpPortal (see lib/pumpportal.ts).
+ */
 export function getConnection(): Connection {
   if (_conn) return _conn;
   const key = process.env.HELIUS_API_KEY;
-  const url =
-    process.env.HELIUS_RPC_URL ||
-    (key ? `https://mainnet.helius-rpc.com/?api-key=${key}` : "");
-  if (!url) {
-    throw new Error(
-      "HELIUS_API_KEY (or HELIUS_RPC_URL) is required for chain access — see .env.example",
-    );
-  }
+  const url = process.env.HELIUS_RPC_URL
+    ? process.env.HELIUS_RPC_URL
+    : key
+      ? `https://mainnet.helius-rpc.com/?api-key=${key}`
+      : FREE_RPC_URL;
   _conn = new Connection(url, { commitment: "confirmed" });
   return _conn;
 }

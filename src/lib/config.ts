@@ -53,3 +53,22 @@ export const SUB_DURATION_DAYS = num(process.env.SUB_DURATION_DAYS, 30);
 export const PAYMENT_MAX_AGE_SECONDS = num(process.env.PAYMENT_MAX_AGE, 60 * 60 * 24);
 
 export const TOTAL_SUPPLY_FALLBACK = 1_000_000_000; // pump.fun default mint supply
+
+/**
+ * Free-stack realtime config (no paid Helius). New launches stream from the
+ * PumpPortal WebSocket (free, no key); on-demand scans of arbitrary mints use a
+ * free public RPC. Helius stays optional — set HELIUS_API_KEY to upgrade
+ * precision/limits, otherwise everything runs on free infrastructure.
+ */
+export const PUMPPORTAL_WS_URL =
+  process.env.PUMPPORTAL_WS_URL || "wss://pumpportal.fun/api/data";
+
+/** Free public RPC fallback when no Helius key is present (rate-limited). */
+export const FREE_RPC_URL =
+  process.env.RPC_URL || "https://api.mainnet-beta.solana.com";
+
+/** Live forensic windows (time-based, since the WS stream has no slot numbers). */
+export const LIVE_WINDOW_MS = num(process.env.LIVE_WINDOW_MS, 8000); // total insider window
+export const BUNDLE_WINDOW_MS = num(process.env.BUNDLE_WINDOW_MS, 1500); // bundle vs sniper cut
+/** Max concurrent token-trade subscriptions held open on the WS. */
+export const LIVE_MAX_TRACKED = num(process.env.LIVE_MAX_TRACKED, 200);
