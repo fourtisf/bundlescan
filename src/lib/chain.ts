@@ -35,24 +35,36 @@ const MAX_SIG_PAGES = Number(process.env.MAX_SIG_PAGES || 8);
 const SIG_PAGE_SIZE = 1000;
 const PARSE_CONCURRENCY = Number(process.env.PARSE_CONCURRENCY || 8);
 
-let _conn: Connection | null = null;
+let _pool: Connection[] = [];
+let _rr = 0;
+
+/** Build the RPC connection pool from RPC_URLS (comma-separated) → RPC_URL →
+ *  Helius (only if a key is set) → free PublicNode default. No key needed. */
+function buildPool(): Connection[] {
+  const key = process.env.HELIUS_API_KEY;
+  const raw =
+    process.env.RPC_URLS ||
+    process.env.HELIUS_RPC_URL ||
+    (key ? `https://mainnet.helius-rpc.com/?api-key=${key}` : "") ||
+    process.env.RPC_URL ||
+    FREE_RPC_URL;
+  const urls = raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return urls.map((u) => new Connection(u, { commitment: "confirmed" }));
+}
 
 /**
- * Lazily-built RPC connection. Prefers Helius if a key is set (higher limits +
- * block history); otherwise falls back to a free public RPC (FREE_RPC_URL) so
- * on-demand scans work with zero paid infrastructure. Realtime indexing does
- * NOT use this — it streams from PumpPortal (see lib/pumpportal.ts).
+ * Lazily-built RPC connection, round-robined across the pool. Set RPC_URLS to a
+ * comma-separated list of free RPCs (PublicNode, Ankr, …) to spread load and
+ * survive free-tier rate limits — entirely Helius-free.
  */
 export function getConnection(): Connection {
-  if (_conn) return _conn;
-  const key = process.env.HELIUS_API_KEY;
-  const url = process.env.HELIUS_RPC_URL
-    ? process.env.HELIUS_RPC_URL
-    : key
-      ? `https://mainnet.helius-rpc.com/?api-key=${key}`
-      : FREE_RPC_URL;
-  _conn = new Connection(url, { commitment: "confirmed" });
-  return _conn;
+  if (_pool.length === 0) _pool = buildPool();
+  const conn = _pool[_rr % _pool.length];
+  _rr++;
+  return conn;
 }
 
 /** Run async tasks with a bounded concurrency pool, preserving input order. */

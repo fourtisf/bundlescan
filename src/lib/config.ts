@@ -63,9 +63,9 @@ export const TOTAL_SUPPLY_FALLBACK = 1_000_000_000; // pump.fun default mint sup
 export const PUMPPORTAL_WS_URL =
   process.env.PUMPPORTAL_WS_URL || "wss://pumpportal.fun/api/data";
 
-/** Free public RPC fallback when no Helius key is present (rate-limited). */
+/** Free public RPC fallback when no Helius key is present (no key required). */
 export const FREE_RPC_URL =
-  process.env.RPC_URL || "https://api.mainnet-beta.solana.com";
+  process.env.RPC_URL || "https://solana-rpc.publicnode.com";
 
 /** Live forensic windows (time-based, since the WS stream has no slot numbers). */
 export const LIVE_WINDOW_MS = num(process.env.LIVE_WINDOW_MS, 8000); // total insider window
