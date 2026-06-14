@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <!-- X/Twitter header banner (1500×500). Logo kept in the central band so the
+       profile avatar (bottom-left) and mobile crop don't cover it. -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/><stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <radialGradient id="bg" cx="0.82" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#D9594A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1500" height="500" fill="#08080A"/>
+  <rect width="1500" height="500" fill="url(#bg)"/>
+
+  <!-- decorative insider-cluster grid, faint, right side -->
+  <g opacity="0.5">
+    <g fill="#2A2A33">
+      <rect x="1140" y="150" width="34" height="34" rx="8"/>
+      <rect x="1186" y="150" width="34" height="34" rx="8"/>
+      <rect x="1278" y="150" width="34" height="34" rx="8"/>
+      <rect x="1140" y="196" width="34" height="34" rx="8"/>
+      <rect x="1140" y="242" width="34" height="34" rx="8"/>
+      <rect x="1186" y="288" width="34" height="34" rx="8"/>
+      <rect x="1278" y="242" width="34" height="34" rx="8"/>
+      <rect x="1324" y="196" width="34" height="34" rx="8"/>
+      <rect x="1324" y="288" width="34" height="34" rx="8"/>
+      <rect x="1232" y="334" width="34" height="34" rx="8"/>
+    </g>
+    <g fill="url(#e)">
+      <rect x="1232" y="150" width="34" height="34" rx="8"/>
+      <rect x="1186" y="196" width="34" height="34" rx="8"/>
+      <rect x="1232" y="196" width="34" height="34" rx="8"/>
+      <rect x="1186" y="242" width="34" height="34" rx="8"/>
+      <rect x="1232" y="242" width="34" height="34" rx="8"/>
+    </g>
+  </g>
+
+  <!-- logo lockup, left-center -->
+  <g transform="translate(190 232) rotate(45)">
+    <rect x="-62" y="-62" width="124" height="124" rx="14" fill="none" stroke="#4A4844" stroke-width="3"/>
+    <rect x="-38" y="-38" width="76" height="76" rx="11" fill="none" stroke="#D9594A" stroke-width="3" opacity="0.5"/>
+    <rect x="-23" y="-23" width="46" height="46" rx="9" fill="#D9594A" filter="url(#g)" opacity="0.7"/>
+    <rect x="-23" y="-23" width="46" height="46" rx="9" fill="url(#e)"/>
+  </g>
+  <text x="300" y="248" font-family="'Clash Display','Segoe UI',Arial,sans-serif"
+        font-weight="700" font-size="86" letter-spacing="-2.5">
+    <tspan fill="#ECE9E2">Bundle</tspan><tspan fill="#D9594A">Scan</tspan>
+  </text>
+  <text x="304" y="304" font-family="'Geist Mono',ui-monospace,monospace"
+        font-size="22" letter-spacing="5" fill="#84817C">Block-zero launch forensics · Solana</text>
+</svg>

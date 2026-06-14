@@ -12,6 +12,12 @@ export const metadata: Metadata = {
       "Replays the first blocks of any token and exposes the wallets that captured supply alongside the deployer.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "BundleScan — Launch Forensics for Solana",
+    description:
+      "Replays block zero and exposes the wallets that rigged the launch before you bought.",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
