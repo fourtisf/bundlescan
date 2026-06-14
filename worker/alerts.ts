@@ -13,24 +13,29 @@ export function startAlerts(bot: Bot | null): void {
   const intervalMs = Number(process.env.ALERT_INTERVAL_MS || 60_000);
 
   const pass = async () => {
-    const mints = await prisma.watchlist.findMany({
-      distinct: ["mint"],
-      select: { mint: true },
-    });
-    for (const { mint } of mints) {
-      try {
-        const prevRaw = await redis.get(`held:${mint}`);
-        const result = await scanToken(mint, { force: true });
-        await redis.set(`held:${mint}`, String(result.insiderHeldPct));
-        if (prevRaw == null) continue;
-        const prev = Number(prevRaw);
-        const drop = prev - result.insiderHeldPct;
-        if (drop >= ALERT_DROP) {
-          await notifyWatchers(mint, prev, result.insiderHeldPct, bot);
+    try {
+      const mints = await prisma.watchlist.findMany({
+        distinct: ["mint"],
+        select: { mint: true },
+      });
+      for (const { mint } of mints) {
+        try {
+          const prevRaw = await redis.get(`held:${mint}`);
+          const result = await scanToken(mint, { force: true });
+          await redis.set(`held:${mint}`, String(result.insiderHeldPct));
+          if (prevRaw == null) continue;
+          const prev = Number(prevRaw);
+          const drop = prev - result.insiderHeldPct;
+          if (drop >= ALERT_DROP) {
+            await notifyWatchers(mint, prev, result.insiderHeldPct, bot);
+          }
+        } catch (e) {
+          console.error("[alerts]", mint, e instanceof Error ? e.message : e);
         }
-      } catch (e) {
-        console.error("[alerts]", mint, e instanceof Error ? e.message : e);
       }
+    } catch (e) {
+      // DB unavailable / not migrated — don't crash the worker, retry next tick.
+      console.error("[alerts] pass skipped:", e instanceof Error ? e.message : e);
     }
   };
 
