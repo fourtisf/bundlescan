@@ -292,14 +292,43 @@ export async function getTokenBalance(wallet: string, mint: string): Promise<big
 }
 
 /**
- * §6.1 — full block-zero replay. Returns the deploy info, total supply and the
- * parsed first-window buys ready for detection/clustering (lib/detect.ts).
+ * §6.1 — full block-zero replay. Fetches the mint's signatures once and derives
+ * both the deploy info and the first-window buys from a single pass (cheaper RPC,
+ * which matters for the throttled realtime indexer).
  */
 export async function replayLaunch(mint: string): Promise<ReplayResult> {
-  const deploy = await getDeployInfo(mint);
-  const [totalSupply, buys] = await Promise.all([
-    getMintSupply(mint),
-    getBlockZeroTxs(mint, deploy.deploySlot),
-  ]);
+  const conn = getConnection();
+  const mintPk = new PublicKey(mint);
+  const sigs = await getAllSignaturesOldestFirst(mintPk);
+  if (sigs.length === 0) throw new Error(`No transaction history for mint ${mint}`);
+
+  const firstTx = await conn.getParsedTransaction(sigs[0].signature, {
+    maxSupportedTransactionVersion: 0,
+  });
+  if (!firstTx) throw new Error(`Could not fetch deploy tx ${sigs[0].signature}`);
+
+  const feePayer = firstTx.transaction.message.accountKeys.find((k) => k.signer);
+  const blockTime = firstTx.blockTime ?? sigs[0].blockTime ?? Math.floor(Date.now() / 1000);
+  const deploy: DeployInfo = {
+    mint,
+    deployer: feePayer?.pubkey.toBase58() ?? sigs[0].signature,
+    deploySlot: firstTx.slot,
+    deployTs: new Date(blockTime * 1000).toISOString(),
+    platform: detectPlatform(firstTx),
+  };
+
+  const maxSlot = deploy.deploySlot + WINDOW_BLOCKS;
+  const windowSigs = sigs.filter((s) => s.slot >= deploy.deploySlot && s.slot <= maxSlot);
+  const txs = await pool(windowSigs, PARSE_CONCURRENCY, (s) =>
+    s.signature === sigs[0].signature
+      ? Promise.resolve(firstTx) // reuse the deploy tx instead of re-fetching
+      : conn.getParsedTransaction(s.signature, { maxSupportedTransactionVersion: 0 }),
+  );
+
+  const buys: ReplayBuy[] = [];
+  for (const tx of txs) if (tx) buys.push(...buysFromTx(tx, mint));
+  buys.sort((a, b) => a.slot - b.slot);
+
+  const totalSupply = await getMintSupply(mint);
   return { deploy, totalSupply, buys };
 }

@@ -133,6 +133,8 @@ export interface FeedItem {
   insiderPct: number;
   scannedAt: string;
   agoSeconds: number;
+  /** SOL market cap at scan time (from the launch source), when known. */
+  marketCapSol?: number;
 }
 
 export interface ShameItem {

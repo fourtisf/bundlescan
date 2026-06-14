@@ -72,3 +72,14 @@ export const LIVE_WINDOW_MS = num(process.env.LIVE_WINDOW_MS, 8000); // total in
 export const BUNDLE_WINDOW_MS = num(process.env.BUNDLE_WINDOW_MS, 1500); // bundle vs sniper cut
 /** Max concurrent token-trade subscriptions held open on the WS. */
 export const LIVE_MAX_TRACKED = num(process.env.LIVE_MAX_TRACKED, 200);
+
+/**
+ * Hybrid indexer (PumpPortal trigger → light RPC replay). PumpPortal catches new
+ * mints free/realtime; a cheap slot-level RPC replay then catches the atomic
+ * bundle the WS stream can't see. Throttled to stay within free-RPC limits.
+ */
+export const LIVE_SCAN_CONCURRENCY = num(process.env.LIVE_SCAN_CONCURRENCY, 2);
+export const LIVE_SCAN_DELAY_MS = num(process.env.LIVE_SCAN_DELAY_MS, 4000); // let blocks settle
+export const LIVE_QUEUE_MAX = num(process.env.LIVE_QUEUE_MAX, 40); // backlog cap → sample/drop excess
+/** Spam guard: skip launches whose create raised less than this many SOL. */
+export const MIN_SOL_RAISED = num(process.env.MIN_SOL_RAISED, 0);

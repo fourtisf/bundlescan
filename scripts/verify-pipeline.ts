@@ -6,7 +6,7 @@
  *   npx tsx scripts/verify-pipeline.ts
  */
 import assert from "node:assert/strict";
-import { analyzeLaunch } from "../src/lib/detect";
+import { analyzeLaunch, analyzeLaunchLight } from "../src/lib/detect";
 import { scoreLaunch, tierForScore } from "../src/lib/score";
 import type { ReplayResult } from "../src/lib/types";
 
@@ -121,9 +121,41 @@ function testScoring() {
   );
 }
 
+function testLightDetection() {
+  // The hybrid realtime path: a dev + same-slot bundle must NOT read CLEAN
+  // (this is the regression guard for the "everything CLEAN" bug).
+  const replay: ReplayResult = {
+    deploy: {
+      mint: "M",
+      deployer: "DEV",
+      deploySlot: 1000,
+      deployTs: new Date().toISOString(),
+      platform: "pumpfun",
+    },
+    totalSupply: 1_000_000_000n,
+    buys: [
+      { wallet: "DEV", tokensReceived: 100_000_000n, slot: 1000, signature: "d" }, // dev 10%
+      { wallet: "A", tokensReceived: 250_000_000n, slot: 1000, signature: "a" }, // bundle 25%
+      { wallet: "B", tokensReceived: 200_000_000n, slot: 1000, signature: "b" }, // bundle 20%
+      { wallet: "C", tokensReceived: 80_000_000n, slot: 1001, signature: "c" }, // sniper 8%
+      { wallet: "E", tokensReceived: 150_000_000n, slot: 1010, signature: "e" }, // organic
+    ],
+  };
+  const f = analyzeLaunchLight(replay);
+  assert.equal(f.bundledCount, 2, "light bundledCount");
+  assert.equal(f.sniperCount, 1, "light sniperCount");
+  approx(f.devPct, 10);
+  approx(f.bundlePct, 45);
+  approx(f.insiderPct, 63);
+  const tier = scoreLaunch(f).tier;
+  assert.ok(tier === "TRAP" || tier === "RIGGED", `rigged launch must not read CLEAN (got ${tier})`);
+  console.log(`✓ light detection catches the bundle (insider ${f.insiderPct}% → ${tier})`);
+}
+
 async function main() {
   await testDetection();
   testScoring();
+  testLightDetection();
   console.log("\nAll pipeline acceptance checks passed.");
 }
 

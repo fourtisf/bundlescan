@@ -4,8 +4,8 @@ import { PUMPPORTAL_WS_URL } from "./config";
 
 /**
  * Free realtime source — PumpPortal WebSocket (no API key, no Helius). Streams
- * new pump.fun token creations and per-token trades, which the live indexer
- * turns into block-zero forensics in realtime (lib/livescan.ts).
+ * new pump.fun token creations (and optionally per-token trades). The hybrid
+ * indexer uses new-token events to trigger a slot-level RPC replay (lib/lightscan.ts).
  * Docs: https://pumpportal.fun/data-api/real-time
  */
 

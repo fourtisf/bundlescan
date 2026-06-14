@@ -25,7 +25,10 @@ export interface WalletAgg {
 }
 
 /** Collapse repeated buys into one row per wallet, summing acquired supply. */
-export function aggregateBuys(replay: ReplayResult): WalletAgg[] {
+export function aggregateBuys(
+  replay: ReplayResult,
+  opts: { keepDeployer?: boolean } = {},
+): WalletAgg[] {
   const byWallet = new Map<string, { raw: bigint; slot: number }>();
   for (const buy of replay.buys) {
     const cur = byWallet.get(buy.wallet);
@@ -36,8 +39,9 @@ export function aggregateBuys(replay: ReplayResult): WalletAgg[] {
       byWallet.set(buy.wallet, { raw: buy.tokensReceived, slot: buy.slot });
     }
   }
-  // The deployer itself is not a "buyer"; exclude from the cluster math.
-  byWallet.delete(replay.deploy.deployer);
+  // The deployer isn't a "buyer" in the full model; the light model keeps it as
+  // the dev insider (pump.fun devs buy in the create tx).
+  if (!opts.keepDeployer) byWallet.delete(replay.deploy.deployer);
 
   return [...byWallet.entries()].map(([address, v]) => ({
     address,
@@ -204,6 +208,61 @@ export async function analyzeLaunch(
     singleFunder: fundingSources === 1 && candidates.length > 1,
     insiderHeldPct,
     hasDevLinkedSnipers,
+    wallets,
+  };
+}
+
+/**
+ * Light analysis for the realtime indexer — slot-level bundle/sniper/dev capture
+ * from the replay alone, with NO extra RPC (no funding trace, no balance calls).
+ * This is the fix for the "everything CLEAN" problem: unlike the WS-only model,
+ * it sees the atomic same-slot bundle. Held% is provisional (assumes held). A
+ * later full scan (lib/scan.ts) adds funding-trace + held/dumped.
+ */
+export function analyzeLaunchLight(replay: ReplayResult): LaunchFeatures {
+  const { deploy } = replay;
+  const aggs = aggregateBuys(replay, { keepDeployer: true });
+
+  const bundled = detectBundles(aggs, deploy.deploySlot);
+  bundled.delete(deploy.deployer); // deployer counted as dev, not bundle
+  const snipers = detectSnipers(
+    aggs,
+    deploy.deploySlot,
+    new Set([...bundled, deploy.deployer]),
+  );
+  const cluster = new Set<string>([...bundled, ...snipers, deploy.deployer]);
+
+  const wallets: AnalyzedWallet[] = aggs
+    .filter((w) => cluster.has(w.address))
+    .map((w) => {
+      const isDev = w.address === deploy.deployer;
+      const role: Role = isDev ? "dev-link" : bundled.has(w.address) ? "bundle" : "sniper";
+      return {
+        address: w.address,
+        role,
+        supplyPct: round(w.supplyPct, 2),
+        entrySlot: w.entrySlot,
+        acquiredRaw: w.acquiredRaw,
+        currentRaw: w.acquiredRaw, // no balance lookup in light mode
+        status: "holding" as WalletStatus,
+        fundingSource: null,
+      };
+    })
+    .sort((a, b) => b.supplyPct - a.supplyPct);
+
+  const insiderPct = round(sumPct(aggs, cluster), 2);
+  return {
+    insiderPct,
+    organicPct: round(100 - insiderPct, 2),
+    devPct: round(sumPct(aggs, new Set([deploy.deployer])), 2),
+    bundlePct: round(sumPct(aggs, bundled), 2),
+    sniperPct: round(sumPct(aggs, snipers), 2),
+    bundledCount: bundled.size,
+    sniperCount: snipers.size,
+    fundingSources: 0,
+    singleFunder: false,
+    insiderHeldPct: 100,
+    hasDevLinkedSnipers: false,
     wallets,
   };
 }

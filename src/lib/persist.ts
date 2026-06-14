@@ -4,7 +4,7 @@ import type { AnalyzedWallet, ScanResult } from "./types";
 
 /**
  * Persist a scored launch (Token + suspect Wallets) — shared by the on-demand
- * scanner (lib/scan.ts) and the free realtime indexer (lib/livescan.ts).
+ * scanner (lib/scan.ts) and the hybrid realtime indexer (lib/lightscan.ts).
  */
 export async function persistLaunch(
   result: ScanResult,
