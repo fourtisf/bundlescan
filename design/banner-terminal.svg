@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <!-- Live Terminal promo banner (1600×900). Built on the prototype's monochrome
+       + ember system (globals.css). Left column = pitch, right column = a faithful
+       mock of the /terminal live feed. Render: node design/render-banner.mjs -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/><stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D9594A"/><stop offset="1" stop-color="#E87A6A"/>
+    </linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <radialGradient id="bg" cx="0.78" cy="0.16" r="0.72">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#D9594A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="panelglow" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#D9594A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#08080A"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- ───────────── LEFT · PITCH ───────────── -->
+  <!-- logo lockup -->
+  <g transform="translate(96 98)">
+    <g transform="translate(18 18) rotate(45)">
+      <rect x="-17" y="-17" width="34" height="34" rx="6" fill="none" stroke="#4A4844" stroke-width="2.5"/>
+      <rect x="-9.5" y="-9.5" width="19" height="19" rx="5" fill="url(#e)"/>
+    </g>
+    <text x="52" y="27" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5" fill="#ECE9E2">BundleScan</text>
+  </g>
+
+  <!-- eyebrow -->
+  <g transform="translate(98 232)">
+    <circle cx="5" cy="-5" r="5" fill="#D9594A"/>
+    <text x="24" y="0" font-family="'Geist Mono',ui-monospace,monospace" font-size="18" letter-spacing="6" fill="#84817C">LIVE TERMINAL · REAL-TIME</text>
+  </g>
+
+  <!-- headline -->
+  <text x="92" y="360" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="86" letter-spacing="-3" fill="#ECE9E2">Every launch,</text>
+  <text x="90" y="452" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="86" letter-spacing="-3" fill="#D9594A">X-rayed live.</text>
+
+  <!-- subcopy -->
+  <text x="96" y="520" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="23" fill="#84817C">Every Solana mint, replayed from block zero — bundles,</text>
+  <text x="96" y="556" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="23" fill="#84817C">snipers and insider supply, scored the second it deploys.</text>
+
+  <!-- CTA pill -->
+  <g transform="translate(96 612)">
+    <rect x="0" y="0" width="338" height="58" rx="29" fill="none" stroke="#D9594A" stroke-width="1.5"/>
+    <text x="30" y="37" font-family="'Geist Mono',ui-monospace,monospace" font-size="19" letter-spacing="1" fill="#ECE9E2">bundlescan.fun/terminal</text>
+    <text x="300" y="37" font-family="'Geist Mono',ui-monospace,monospace" font-size="22" fill="#D9594A">→</text>
+  </g>
+
+  <!-- tier legend -->
+  <g transform="translate(98 728)" font-family="'Geist Mono',ui-monospace,monospace" font-size="15" letter-spacing="1">
+    <rect x="0" y="-11" width="11" height="11" rx="2" fill="#D9594A"/>
+    <text x="20" y="-1" fill="#84817C">TRAP</text>
+    <rect x="92" y="-11" width="11" height="11" rx="2" fill="#E87A6A"/>
+    <text x="112" y="-1" fill="#84817C">RIGGED</text>
+    <rect x="214" y="-11" width="11" height="11" rx="2" fill="#B0AEA7"/>
+    <text x="234" y="-1" fill="#84817C">MILD</text>
+    <rect x="306" y="-11" width="11" height="11" rx="2" fill="#7FA894"/>
+    <text x="326" y="-1" fill="#84817C">CLEAN</text>
+  </g>
+
+  <!-- bottom tagline -->
+  <text x="96" y="828" font-family="'Geist Mono',ui-monospace,monospace" font-size="16" letter-spacing="5" fill="#4A4844">BLOCK-ZERO LAUNCH FORENSICS · SOLANA</text>
+
+  <!-- ───────────── RIGHT · LIVE TERMINAL ───────────── -->
+  <rect x="748" y="120" width="772" height="660" rx="18" fill="url(#panelglow)"/>
+  <rect x="752" y="124" width="764" height="652" rx="16" fill="#0A0A0C" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+
+  <!-- terminal title bar -->
+  <g transform="translate(752 124)">
+    <line x1="0" y1="50" x2="764" y2="50" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <rect x="22" y="20" width="11" height="11" rx="2.5" transform="rotate(45 27.5 25.5)" fill="#D9594A"/>
+    <text x="46" y="31" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="16" fill="#ECE9E2">BundleScan</text>
+    <text x="138" y="30" font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#4A4844">LIVE TERMINAL</text>
+    <circle cx="640" cy="25" r="4" fill="#D9594A"/>
+    <text x="654" y="29" font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="3" fill="#84817C">LIVE STREAM</text>
+  </g>
+
+  <!-- stat strip -->
+  <g transform="translate(752 174)" font-family="'Geist Mono',ui-monospace,monospace">
+    <line x1="0" y1="48" x2="764" y2="48" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <g transform="translate(24 30)">
+      <text font-size="11" letter-spacing="2" fill="#4A4844">SCORED <tspan font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-size="17" fill="#ECE9E2" letter-spacing="0">12</tspan></text>
+      <text x="118" font-size="11" letter-spacing="2" fill="#4A4844">TRAP <tspan font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-size="17" fill="#D9594A" letter-spacing="0">4</tspan></text>
+      <text x="212" font-size="11" letter-spacing="2" fill="#4A4844">RIGGED <tspan font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-size="17" fill="#E87A6A" letter-spacing="0">4</tspan></text>
+      <text x="330" font-size="11" letter-spacing="2" fill="#4A4844">MILD <tspan font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-size="17" fill="#B0AEA7" letter-spacing="0">3</tspan></text>
+      <text x="424" font-size="11" letter-spacing="2" fill="#4A4844">CLEAN <tspan font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-size="17" fill="#7FA894" letter-spacing="0">1</tspan></text>
+      <text x="640" font-size="11" letter-spacing="2" fill="#4A4844">~12 /MIN</text>
+    </g>
+  </g>
+
+  <!-- column header -->
+  <g transform="translate(752 222)" font-family="'Geist Mono',ui-monospace,monospace" font-size="10.5" letter-spacing="2" fill="#4A4844">
+    <line x1="0" y1="34" x2="764" y2="34" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <text x="24" y="23">TIME</text>
+    <text x="118" y="23">TOKEN</text>
+    <text x="258" y="23">RISK</text>
+    <text x="392" y="23">SCORE</text>
+    <text x="468" y="23">TIER</text>
+    <text x="580" y="23">INSIDER</text>
+    <text x="740" y="23" text-anchor="end">CONTRACT</text>
+  </g>
+
+  <!-- rows: y starts at 256+ panel-top; row height 58 -->
+  <!-- Row template via <use>-like manual blocks. Columns (x, panel-relative+752):
+       TIME 776 · TOKEN 870 · RISK 1010 · SCORE 1144(end) · TIER 1220 · INSIDER 1332 · CA 1492(end) -->
+
+  <!-- ROW 1 · $MOONPAD TRAP 9 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="314" x2="1516" y2="314" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="300" fill="#4A4844">10:55:01</text>
+    <text x="870" y="300" fill="#ECE9E2">$MOONPAD</text>
+    <!-- risk bars: 1/5 red -->
+    <g transform="translate(1010 290)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="300" text-anchor="end" fill="#D9594A" font-weight="500">9</text>
+    <text x="1220" y="300" fill="#D9594A" letter-spacing="1">TRAP</text>
+    <text x="1332" y="300" fill="#84817C">79%</text>
+    <text x="1492" y="300" text-anchor="end" fill="#4A4844">Dp4m…6tWq</text>
+  </g>
+
+  <!-- ROW 2 · $WAGMI RIGGED 24 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="372" x2="1516" y2="372" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="358" fill="#4A4844">10:55:01</text>
+    <text x="870" y="358" fill="#ECE9E2">$WAGMI</text>
+    <g transform="translate(1010 348)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="358" text-anchor="end" fill="#E87A6A" font-weight="500">24</text>
+    <text x="1220" y="358" fill="#E87A6A" letter-spacing="1">RIGGED</text>
+    <text x="1332" y="358" fill="#84817C">61%</text>
+    <text x="1492" y="358" text-anchor="end" fill="#4A4844">7xKp…9fQa</text>
+  </g>
+
+  <!-- ROW 3 · $BONKAI RIGGED 38 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="430" x2="1516" y2="430" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="416" fill="#4A4844">10:54:58</text>
+    <text x="870" y="416" fill="#ECE9E2">$BONKAI</text>
+    <g transform="translate(1010 406)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="416" text-anchor="end" fill="#E87A6A" font-weight="500">38</text>
+    <text x="1220" y="416" fill="#E87A6A" letter-spacing="1">RIGGED</text>
+    <text x="1332" y="416" fill="#84817C">54%</text>
+    <text x="1492" y="416" text-anchor="end" fill="#4A4844">cB19…jUQN</text>
+  </g>
+
+  <!-- ROW 4 · $POPCAT MILD 68 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="488" x2="1516" y2="488" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="474" fill="#4A4844">10:54:55</text>
+    <text x="870" y="474" fill="#ECE9E2">$POPCAT</text>
+    <g transform="translate(1010 464)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#B0AEA7"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#B0AEA7"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#B0AEA7"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#B0AEA7"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="474" text-anchor="end" fill="#B0AEA7" font-weight="500">68</text>
+    <text x="1220" y="474" fill="#B0AEA7" letter-spacing="1">MILD</text>
+    <text x="1332" y="474" fill="#84817C">41%</text>
+    <text x="1492" y="474" text-anchor="end" fill="#4A4844">c1u7…xaNJ</text>
+  </g>
+
+  <!-- ROW 5 · $GIGA CLEAN 83 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="546" x2="1516" y2="546" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="532" fill="#4A4844">10:54:51</text>
+    <text x="870" y="532" fill="#ECE9E2">$GIGA</text>
+    <g transform="translate(1010 522)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+    </g>
+    <text x="1148" y="532" text-anchor="end" fill="#7FA894" font-weight="500">83</text>
+    <text x="1220" y="532" fill="#7FA894" letter-spacing="1">CLEAN</text>
+    <text x="1332" y="532" fill="#84817C">18%</text>
+    <text x="1492" y="532" text-anchor="end" fill="#4A4844">pN4b…sdc2</text>
+  </g>
+
+  <!-- ROW 6 · $RETARDIO RIGGED 31 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="604" x2="1516" y2="604" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="590" fill="#4A4844">10:54:47</text>
+    <text x="870" y="590" fill="#ECE9E2">$RETARDIO</text>
+    <g transform="translate(1010 580)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="590" text-anchor="end" fill="#E87A6A" font-weight="500">31</text>
+    <text x="1220" y="590" fill="#E87A6A" letter-spacing="1">RIGGED</text>
+    <text x="1332" y="590" fill="#84817C">57%</text>
+    <text x="1492" y="590" text-anchor="end" fill="#4A4844">CshE…Sois</text>
+  </g>
+
+  <!-- ROW 7 · $VERDE CLEAN 88 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="662" x2="1516" y2="662" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="648" fill="#4A4844">10:54:44</text>
+    <text x="870" y="648" fill="#ECE9E2">$VERDE</text>
+    <g transform="translate(1010 638)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#7FA894"/>
+    </g>
+    <text x="1148" y="648" text-anchor="end" fill="#7FA894" font-weight="500">88</text>
+    <text x="1220" y="648" fill="#7FA894" letter-spacing="1">CLEAN</text>
+    <text x="1332" y="648" fill="#84817C">7%</text>
+    <text x="1492" y="648" text-anchor="end" fill="#4A4844">Gm7t…8sLc</text>
+  </g>
+
+  <!-- ROW 8 · $DADDY TRAP 12 -->
+  <g font-family="'Geist Mono',ui-monospace,monospace" font-size="14.5">
+    <line x1="752" y1="720" x2="1516" y2="720" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+    <text x="776" y="706" fill="#4A4844">10:54:40</text>
+    <text x="870" y="706" fill="#ECE9E2">$DADDY</text>
+    <g transform="translate(1010 696)">
+      <rect x="0"  y="0" width="14" height="11" rx="3" fill="#D9594A"/>
+      <rect x="19" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="38" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="57" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+      <rect x="76" y="0" width="14" height="11" rx="3" fill="#22222A"/>
+    </g>
+    <text x="1148" y="706" text-anchor="end" fill="#D9594A" font-weight="500">12</text>
+    <text x="1220" y="706" fill="#D9594A" letter-spacing="1">TRAP</text>
+    <text x="1332" y="706" fill="#84817C">74%</text>
+    <text x="1492" y="706" text-anchor="end" fill="#4A4844">V3k8…V5Ho</text>
+  </g>
+
+  <!-- command line footer -->
+  <g transform="translate(752 124)">
+    <line x1="0" y1="608" x2="764" y2="608" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <text x="24" y="635" font-family="'Geist Mono',ui-monospace,monospace" font-size="13" fill="#84817C"><tspan fill="#7FA894">&gt;</tspan> replaying block zero · scoring launch health</text>
+    <rect x="404" y="624" width="8" height="14" fill="#D9594A"/>
+  </g>
+</svg>
