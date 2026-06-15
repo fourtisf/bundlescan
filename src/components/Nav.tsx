@@ -27,6 +27,15 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <a
+            href="https://x.com/bundlescan_"
+            target="_blank"
+            rel="noreferrer"
+            className="lnk nav-link"
+            aria-label="BundleScan on X"
+          >
+            X ↗
+          </a>
           <a href="#top" className="nav-cta nav-link">
             Scan
           </a>
@@ -53,6 +62,15 @@ export default function Nav() {
             {l.menu}
           </a>
         ))}
+        <a
+          href="https://x.com/bundlescan_"
+          target="_blank"
+          rel="noreferrer"
+          className="menu-item nav-link"
+          onClick={() => setOpen(false)}
+        >
+          <span className="mi-n">↗</span>X / @bundlescan_
+        </a>
         <a href="#top" className="menu-item menu-cta nav-link" onClick={() => setOpen(false)}>
           <span className="mi-n">→</span>Scan a launch
         </a>

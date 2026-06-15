@@ -35,7 +35,7 @@
   <!-- eyebrow -->
   <g transform="translate(98 222)">
     <circle cx="5" cy="-5" r="5" fill="#D9594A"/>
-    <text x="24" y="0" font-family="'Geist Mono',ui-monospace,monospace" font-size="18" letter-spacing="6" fill="#84817C">NOW LIVE · SOLANA</text>
+    <text x="24" y="0" font-family="'Geist Mono',ui-monospace,monospace" font-size="18" letter-spacing="6" fill="#84817C">TOKEN LAUNCH · SOLANA</text>
   </g>
 
   <!-- giant ticker -->
@@ -43,21 +43,13 @@
   <text x="100" y="492" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="500" font-size="32" letter-spacing="-0.5" fill="#84817C">BundleScan</text>
 
   <!-- hook -->
-  <text x="100" y="566" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="27" fill="#ECE9E2">We catch rigged launches. This one runs clean.</text>
-  <text x="100" y="606" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="21" fill="#84817C">Don't trust us — paste the CA into BundleScan and check.</text>
+  <text x="100" y="566" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="27" fill="#ECE9E2">We catch rigged launches. Now watch us run a clean one.</text>
+  <text x="100" y="606" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="21" fill="#84817C">Clean by design — verify it the moment the CA drops.</text>
 
-  <!-- CA pill (LIVE state — PLACEHOLDER address; swap for the real mint) -->
-  <g transform="translate(100 656)">
-    <rect x="0" y="0" width="540" height="52" rx="26" fill="rgba(217,89,74,.085)" stroke="#D9594A" stroke-width="1"/>
-    <circle cx="28" cy="26" r="7" fill="#D9594A" opacity="0.25"/><circle cx="28" cy="26" r="4" fill="#D9594A"/>
-    <text x="48" y="31" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2.6" fill="#4A4844">CA</text>
-    <text x="84" y="31" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="0.4" fill="#ECE9E2">SCAN7hX2kPq9mNvR4tB6yLgEaWcDsFj8uZ3nKpump</text>
-    <line x1="464" y1="14" x2="464" y2="38" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
-    <text x="480" y="31" font-family="'Geist Mono',ui-monospace,monospace" font-size="12" letter-spacing="1.2" fill="#D9594A">COPY</text>
-  </g>
+  <!-- CA intentionally omitted pre-launch -->
 
   <!-- tier scale (the standard we hold ourselves to) -->
-  <g transform="translate(100 760)">
+  <g transform="translate(100 704)">
     <rect x="0" y="0" width="566" height="6" rx="3" fill="#22222A"/>
     <rect x="0" y="0" width="566" height="6" rx="3" fill="url(#scale)"/>
     <g font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="1.5" transform="translate(0 26)">
