@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <!-- Launch banner (1600×900). Token: BundleScan · $SCAN. Pre-launch state shows
+       the CA pill as COMING SOON (matches the hero pill). Built on the monochrome
+       + ember system. Render: node design/render-banner.mjs -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/><stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <filter id="g" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="10"/></filter>
+    <radialGradient id="bg" cx="0.74" cy="0.18" r="0.78">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.17"/><stop offset="1" stop-color="#D9594A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#08080A"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- faint diamond motif, right -->
+  <g transform="translate(1268 432) rotate(45)" opacity="0.15">
+    <rect x="-230" y="-230" width="460" height="460" rx="42" fill="none" stroke="#4A4844" stroke-width="4"/>
+    <rect x="-148" y="-148" width="296" height="296" rx="34" fill="none" stroke="#D9594A" stroke-width="4"/>
+    <rect x="-70" y="-70" width="140" height="140" rx="22" fill="#D9594A" filter="url(#g)" opacity="0.7"/>
+    <rect x="-70" y="-70" width="140" height="140" rx="22" fill="url(#e)"/>
+  </g>
+
+  <!-- logo lockup -->
+  <g transform="translate(96 92)">
+    <g transform="translate(18 18) rotate(45)">
+      <rect x="-17" y="-17" width="34" height="34" rx="6" fill="none" stroke="#4A4844" stroke-width="2.5"/>
+      <rect x="-9.5" y="-9.5" width="19" height="19" rx="5" fill="url(#e)"/>
+    </g>
+    <text x="52" y="27" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5" fill="#ECE9E2">BundleScan</text>
+  </g>
+
+  <!-- eyebrow -->
+  <g transform="translate(98 222)">
+    <circle cx="5" cy="-5" r="5" fill="#D9594A"/>
+    <text x="24" y="0" font-family="'Geist Mono',ui-monospace,monospace" font-size="18" letter-spacing="6" fill="#84817C">TOKEN LAUNCH · SOLANA</text>
+  </g>
+
+  <!-- giant ticker -->
+  <text x="86" y="430" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="184" letter-spacing="-6" fill="#ECE9E2"><tspan fill="#D9594A">$</tspan>SCAN</text>
+  <text x="100" y="492" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="500" font-size="32" letter-spacing="-0.5" fill="#84817C">BundleScan</text>
+
+  <!-- hook -->
+  <text x="100" y="566" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="27" fill="#ECE9E2">We catch rigged launches. Now watch us run a clean one.</text>
+  <text x="100" y="606" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="21" fill="#84817C">Don't trust us — scan the CA yourself, with the tool itself.</text>
+
+  <!-- CA pill (COMING SOON state, matches the hero pill) -->
+  <g transform="translate(100 656)">
+    <rect x="0" y="0" width="266" height="52" rx="26" fill="rgba(255,255,255,.015)" stroke="rgba(255,255,255,.11)" stroke-width="1"/>
+    <circle cx="28" cy="26" r="7" fill="#D9594A" opacity="0.25"/><circle cx="28" cy="26" r="4" fill="#D9594A"/>
+    <text x="48" y="31" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2.6" fill="#4A4844">CA</text>
+    <text x="84" y="31" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2.4" fill="#ECE9E2">COMING SOON</text>
+  </g>
+
+  <!-- tier scale (the standard we hold ourselves to) -->
+  <g transform="translate(100 760)">
+    <rect x="0" y="0" width="566" height="6" rx="3" fill="#22222A"/>
+    <rect x="0" y="0" width="566" height="6" rx="3" fill="url(#scale)"/>
+    <g font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="1.5" transform="translate(0 26)">
+      <text x="0" fill="#D9594A">TRAP</text>
+      <text x="150" fill="#E87A6A">RIGGED</text>
+      <text x="330" fill="#B0AEA7">MILD</text>
+      <text x="566" text-anchor="end" fill="#7FA894">CLEAN ◆</text>
+    </g>
+  </g>
+  <linearGradient id="scale" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#D9594A"/><stop offset="0.26" stop-color="#E87A6A"/>
+    <stop offset="0.62" stop-color="#B0AEA7"/><stop offset="1" stop-color="#7FA894"/>
+  </linearGradient>
+
+  <!-- bottom bar -->
+  <text x="100" y="864" font-family="'Geist Mono',ui-monospace,monospace" font-size="15" letter-spacing="4" fill="#4A4844">BLOCK-ZERO LAUNCH FORENSICS · SOLANA</text>
+  <text x="1504" y="864" text-anchor="end" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" letter-spacing="1" fill="#84817C">bundlescan.fun</text>
+</svg>

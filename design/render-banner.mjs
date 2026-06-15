@@ -9,6 +9,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const jobs = [
   ["banner-terminal.svg", "banner-terminal.png", 3200], // 2× of 1600
   ["banner-access.svg", "banner-access.png", 3200], // 2× of 1600
+  ["banner-launch.svg", "banner-launch.png", 3200], // 2× of 1600
   ["x-header-terminal.svg", "x-header-terminal.png", 3000], // 2× of 1500
 ];
 

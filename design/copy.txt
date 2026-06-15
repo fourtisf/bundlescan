@@ -215,3 +215,42 @@ No CA yet. When it drops, X-ray it before you ape — you've got the tool.
 The CA is loading. You already know how to check it. ◆ bundlescan.fun
 
 (Note: confirm the X handle before posting — looks like @bundlescan_)
+
+
+========================================
+11 · TOKEN LAUNCH — $SCAN  (pair with banner-launch.png)
+========================================
+
+Name:    BundleScan
+Ticker:  $SCAN          (backup if taken on Solana: $BNDL)
+
+--- TEASER POST (pre-CA, EN) ---
+$SCAN — CA: COMING SOON.
+
+We built BundleScan to catch rigged launches: bundles, snipers, insider supply, scored at block zero.
+
+Now we're launching our own. No team bundle. No sniper bag. When the CA drops, scan it with the tool itself.
+
+bundlescan.fun
+
+--- LAUNCH-DAY POST (CA live, EN) ---
+$SCAN is live.
+
+The tool that catches rigged launches just ran a clean one. Don't trust us — paste the CA into BundleScan and check for yourself:
+
+CA: <paste mint>
+
+Scan it before you ape → bundlescan.fun
+
+--- HYPE ONE-LINERS ---
+We catch rigged launches. Now watch us run a clean one. $SCAN
+Scan it before you ape. Even this one. $SCAN ◆
+The one launch you can verify with the tool that's launching it. $SCAN
+No bundle. No snipers. Proof on-chain, not in the bio. $SCAN
+
+--- BAHASA INDONESIA ---
+$SCAN — CA: COMING SOON.
+
+Tool yang nangkep launch curang sekarang nge-launch token-nya sendiri. Gak ada bundle tim, gak ada jatah sniper. Pas CA keluar, scan sendiri pakai tool-nya.
+
+Jangan percaya kami — buktikan on-chain. bundlescan.fun
