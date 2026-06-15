@@ -5,6 +5,12 @@ import { isValidMint } from "@/lib/util";
 import type { ScanResult } from "@/lib/types";
 
 const SAMPLE_CA = "7xKpVeR4nQ2mL8sD3wYt…9fQa";
+
+// ── Token contract address ─────────────────────────────────────────────────
+// Pre-launch teaser. Leave null to show the "CA · COMING SOON" pill. At launch,
+// set this to the real Solana mint and the pill turns into a click-to-copy CA
+// automatically — no other changes needed.
+const TOKEN_CA: string | null = null;
 const LOAD_MSGS = [
   "Pulling deploy transaction…",
   "Replaying blocks 0–12…",
@@ -27,6 +33,7 @@ export default function ScanExperience() {
   const [stripWidth, setStripWidth] = useState(0);
   const [xrayGo, setXrayGo] = useState(false);
   const [copyTxt, setCopyTxt] = useState("copy");
+  const [caCopied, setCaCopied] = useState(false);
 
   const resultRef = useRef<HTMLDivElement>(null);
   const timers = useRef<ReturnType<typeof setInterval>[]>([]);
@@ -156,6 +163,13 @@ export default function ScanExperience() {
     setTimeout(() => setCopyTxt("copy"), 1200);
   };
 
+  const copyTokenCa = () => {
+    if (!TOKEN_CA) return;
+    navigator.clipboard?.writeText(TOKEN_CA).catch(() => {});
+    setCaCopied(true);
+    setTimeout(() => setCaCopied(false), 1200);
+  };
+
   return (
     <>
       <a id="top" />
@@ -169,6 +183,21 @@ export default function ScanExperience() {
             BundleScan replays the first blocks of any token and exposes the wallets that captured
             supply alongside the deployer — then scores how loaded the launch really is.
           </p>
+          <div
+            className={`ca-pill${TOKEN_CA ? " live" : ""}`}
+            onClick={copyTokenCa}
+            role={TOKEN_CA ? "button" : undefined}
+            tabIndex={TOKEN_CA ? 0 : undefined}
+            onKeyDown={(e) => TOKEN_CA && e.key === "Enter" && copyTokenCa()}
+            title={TOKEN_CA ? "Copy contract address" : "Contract address revealed at launch"}
+          >
+            <span className="dot" />
+            <span className="ca-k">CA</span>
+            <span className="ca-v">
+              {TOKEN_CA ? `${TOKEN_CA.slice(0, 4)}…${TOKEN_CA.slice(-4)}` : "Coming soon"}
+            </span>
+            {TOKEN_CA && <span className="ca-act">{caCopied ? "copied" : "copy"}</span>}
+          </div>
           <div className="scanbox">
             <div className="scan-field">
               <span className="pfx">CA</span>
