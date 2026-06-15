@@ -7,9 +7,9 @@ import type { ScanResult } from "@/lib/types";
 const SAMPLE_CA = "7xKpVeR4nQ2mL8sD3wYt…9fQa";
 
 // ── Token contract address ─────────────────────────────────────────────────
-// null → hero shows the "CA · COMING SOON" pill. At launch, set this to the real
-// Solana mint and the pill auto-becomes a click-to-copy contract address.
-const TOKEN_CA: string | null = null;
+// Live $SCAN mint — hero pill is a click-to-copy CA. Set back to null to show
+// the "CA · COMING SOON" pill again.
+const TOKEN_CA: string | null = "kXqL5svcb3VYvWo6D15BjkDBmB8zrPhmy3ahrg5pump";
 const LOAD_MSGS = [
   "Pulling deploy transaction…",
   "Replaying blocks 0–12…",

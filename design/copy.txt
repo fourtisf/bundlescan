@@ -238,7 +238,7 @@ $SCAN is live.
 
 The tool that catches rigged launches just ran a clean one. Don't trust us — paste the CA into BundleScan and check for yourself:
 
-CA: <paste mint>
+CA: kXqL5svcb3VYvWo6D15BjkDBmB8zrPhmy3ahrg5pump
 
 Scan it before you ape → bundlescan.fun
 
