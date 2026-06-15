@@ -1,0 +1,135 @@
+BUNDLESCAN — COPY KIT (plain text, ready to paste)
+Domain: bundlescan.fun
+Disclaimer (append where relevant): On-chain analytics, not financial advice. Scores are probabilistic and may misclassify. DYOR.
+
+
+========================================
+1 · X / TWITTER BIO
+========================================
+
+Block-zero launch forensics for Solana. Paste any mint — we replay block zero and expose the wallets that rigged it. TRAP · RIGGED · MILD · CLEAN.
+
+
+========================================
+2 · PINNED POST (pair with banner-terminal.png)
+========================================
+
+Every Solana launch, scored the second it deploys.
+
+BundleScan's Live Terminal replays block zero on every new mint and flags the bundles, snipers and insider wallets that captured supply before you could.
+
+TRAP. RIGGED. MILD. CLEAN.
+
+→ bundlescan.fun/terminal
+
+
+========================================
+3 · IMAGE CAPTION (posting the banner on its own)
+========================================
+
+This is what block zero actually looks like.
+
+Every Solana launch, X-rayed live — bundles, snipers and insider supply scored the second it deploys.
+
+bundlescan.fun/terminal
+
+
+========================================
+4 · LAUNCH THREAD (copy each tweet separately)
+========================================
+
+--- 1 ---
+You didn't get rugged. You got out-positioned at block zero.
+
+Most Solana "launches" are decided before the chart exists — bundled wallets and snipers grab the supply in the first 12 blocks, then sell it back to you.
+
+BundleScan shows you the receipt.
+
+--- 2 ---
+Paste any mint. We pull the deploy transaction and replay the first blocks of trades — reconstructing exactly who bought before the market opened.
+
+Bundles. Same-block snipers. Wallets funded straight from the deployer's source.
+
+--- 3 ---
+Every insider wallet collapses into one cluster — so you see total controlled supply, not scattered rows.
+
+Then it's a single number: the Launch Health Score, 0–100.
+
+--- 4 ---
+The tiers:
+
+TRAP (0–24) — majority insider supply, one funder. A coordinated dump is the base case.
+RIGGED (25–54) — insiders hold big from block zero. You're exit liquidity unless they sell first.
+MILD (55–79) — some coordination, mostly open float.
+CLEAN (80–100) — organic distribution.
+
+--- 5 ---
+And it's live.
+
+The Terminal scores the pump.fun firehose in real time — ~12 launches/min — so you watch the trap form before the candle does.
+
+bundlescan.fun/terminal
+
+--- 6 ---
+Every scan = one share card. Drop it in the group chat, quote-tweet the launch, let the receipt speak.
+
+Stop being someone else's exit.
+
+bundlescan.fun
+
+
+========================================
+5 · HEADLINE OPTIONS (A/B)
+========================================
+
+Every launch, X-rayed live.
+The launch was rigged before you bought.
+See the trap before the candle.
+Read the launch before you ape.
+One score. The whole launch.
+Block zero never lies.
+
+
+========================================
+6 · CTAs
+========================================
+
+Scan a mint →
+Watch the live feed →
+X-ray this launch →
+Paste a mint. We rebuild the launch.
+
+
+========================================
+7 · ALT TEXT (accessibility — paste in the ALT field)
+========================================
+
+banner-terminal.png:
+BundleScan promo banner. Headline "Every launch, X-rayed live" beside a live forensic terminal listing Solana tokens with risk bars, Launch Health Scores and TRAP / RIGGED / MILD / CLEAN tiers plus insider-supply percentages.
+
+x-header-terminal.png:
+BundleScan header. Logo and the tagline "Every launch, X-rayed live — block-zero launch forensics, Solana", with a live terminal card showing three tokens scored TRAP, RIGGED and CLEAN.
+
+
+========================================
+8 · BAHASA INDONESIA
+========================================
+
+--- BIO ---
+Forensik launch block-zero buat Solana. Paste mint apa pun — kami replay block zero & bongkar wallet yang nge-rig launch-nya. TRAP · RIGGED · MILD · CLEAN.
+
+--- PINNED POST ---
+Tiap launch di Solana, di-scan detik itu juga dia deploy.
+
+Live Terminal BundleScan me-replay block zero tiap mint baru & nandain bundle, sniper, dan wallet insider yang udah ngeborong supply sebelum kamu sempat masuk.
+
+TRAP. RIGGED. MILD. CLEAN.
+
+→ bundlescan.fun/terminal
+
+--- CAPTION BANNER ---
+Beginilah wujud block zero yang sebenarnya.
+
+Tiap launch Solana di-X-ray live — bundle, sniper, & insider supply, di-score begitu deploy. Berhenti jadi exit liquidity orang lain.
+
+bundlescan.fun/terminal
