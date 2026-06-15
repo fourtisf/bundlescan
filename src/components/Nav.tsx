@@ -27,6 +27,9 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <a href="#top" className="nav-cta nav-link">
+            Scan
+          </a>
           <a
             href="https://x.com/bundlescan_"
             target="_blank"
@@ -35,9 +38,6 @@ export default function Nav() {
             aria-label="BundleScan on X"
           >
             X ↗
-          </a>
-          <a href="#top" className="nav-cta nav-link">
-            Scan
           </a>
           <button
             className={`menu-btn${open ? " open" : ""}`}

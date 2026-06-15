@@ -136,9 +136,6 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <div className="foot-in">
-          <div className="foot-eco">
-            Part of the <b>Fourtis</b> ecosystem · pairs with <b>DevRadar</b>
-          </div>
           <div className="foot-links">
             <a href="#top">Scan</a>
             <a href="#caps">Capabilities</a>
