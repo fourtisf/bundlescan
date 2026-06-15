@@ -7,10 +7,11 @@ import type { ScanResult } from "@/lib/types";
 const SAMPLE_CA = "7xKpVeR4nQ2mL8sD3wYt…9fQa";
 
 // ── Token contract address ─────────────────────────────────────────────────
-// Pre-launch teaser. Leave null to show the "CA · COMING SOON" pill. At launch,
-// set this to the real Solana mint and the pill turns into a click-to-copy CA
-// automatically — no other changes needed.
-const TOKEN_CA: string | null = null;
+// Set to the real Solana mint at launch; set back to null to show the
+// "CA · COMING SOON" pill again. The pill auto-switches to click-to-copy.
+// ⚠ PLACEHOLDER below so the live state can be previewed — REPLACE with the
+//   real mint before deploying. Do not ship this fake address.
+const TOKEN_CA: string | null = "SCAN7hX2kPq9mNvR4tB6yLgEaWcDsFj8uZ3nKpump";
 const LOAD_MSGS = [
   "Pulling deploy transaction…",
   "Replaying blocks 0–12…",

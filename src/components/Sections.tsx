@@ -143,6 +143,9 @@ export function Footer() {
             <a href="#top">Scan</a>
             <a href="#caps">Capabilities</a>
             <a href="#access">Access</a>
+            <a href="https://x.com/bundlescan_" target="_blank" rel="noreferrer">
+              X ↗
+            </a>
           </div>
         </div>
         <div className="disclaimer">
