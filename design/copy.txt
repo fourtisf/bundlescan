@@ -4,10 +4,28 @@ Disclaimer (append where relevant): On-chain analytics, not financial advice. Sc
 
 
 ========================================
-1 · X / TWITTER BIO
+1 · X / TWITTER BIO  (160-char limit; put the URL in the Website field)
 ========================================
 
-Block-zero launch forensics for Solana. Paste any mint — we replay block zero and expose the wallets that rigged it. TRAP · RIGGED · MILD · CLEAN.
+-- Option 1 · forensic & complete (~144) --
+Block-zero launch forensics for Solana. Paste any mint — we replay block zero & expose the wallets that rigged it. TRAP · RIGGED · MILD · CLEAN.
+
+-- Option 2 · punchy / attitude (~126) --
+We replay block zero on every Solana launch and expose the wallets that rigged it. Stop being someone else's exit liquidity. ◆
+
+-- Option 3 · real-time / terminal (~134) --
+Solana launch X-ray. Every new mint replayed from block zero & scored 0–100 — bundles, snipers, insider supply, live. ◆ bundlescan.fun
+
+-- Option 4 · minimal / memorable (~128) --
+Block zero never lies. Launch forensics for Solana — paste a mint, see who really owns the supply. TRAP · RIGGED · MILD · CLEAN.
+
+-- Option 5 · Bahasa Indonesia (~135) --
+Forensik launch block-zero buat Solana. Paste mint apa pun — kami bongkar wallet yang nge-rig launch-nya. TRAP · RIGGED · MILD · CLEAN.
+
+Profile tips:
+  Name field:  BundleScan ◆   (or "BundleScan — Launch X-Ray")
+  Website:     bundlescan.fun
+  Location:    Solana / block zero  (optional, on-brand)
 
 
 ========================================
