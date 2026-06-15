@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <!-- Access / pricing banner (1600×900). Mirrors the site's .plans layout:
+       Scout / Operator(featured) / Syndicate. Data 1:1 with src/components/Access.tsx.
+       Render: node design/render-banner.mjs -->
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E87A6A"/><stop offset="1" stop-color="#D9594A"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="0.5" cy="0.0" r="0.8">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#D9594A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="feat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D9594A" stop-opacity="0.14"/>
+      <stop offset="0.6" stop-color="#D9594A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#08080A"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- logo lockup -->
+  <g transform="translate(96 92)">
+    <g transform="translate(18 18) rotate(45)">
+      <rect x="-17" y="-17" width="34" height="34" rx="6" fill="none" stroke="#4A4844" stroke-width="2.5"/>
+      <rect x="-9.5" y="-9.5" width="19" height="19" rx="5" fill="url(#e)"/>
+    </g>
+    <text x="52" y="27" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5" fill="#ECE9E2">BundleScan</text>
+  </g>
+
+  <!-- eyebrow -->
+  <g transform="translate(98 196)">
+    <circle cx="5" cy="-5" r="5" fill="#D9594A"/>
+    <text x="24" y="0" font-family="'Geist Mono',ui-monospace,monospace" font-size="18" letter-spacing="6" fill="#84817C">ACCESS</text>
+  </g>
+
+  <!-- headline + subcopy -->
+  <text x="92" y="276" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="58" letter-spacing="-2" fill="#ECE9E2">Scan free. <tspan fill="#D9594A">Go deeper on-chain.</tspan></text>
+  <text x="96" y="322" font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="21" fill="#84817C">Free forever to scan. Pay in SOL only when you want the live feed, alerts and API.</text>
+
+  <!-- ───────── CARDS ───────── -->
+
+  <!-- SCOUT -->
+  <g>
+    <rect x="96" y="362" width="440" height="468" rx="18" fill="rgba(255,255,255,.015)" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <text x="128" y="420" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="24" fill="#ECE9E2">Scout</text>
+    <text x="128" y="472" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="30" fill="#ECE9E2">Free</text>
+    <line x1="128" y1="500" x2="504" y2="500" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <g font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="15.5" fill="#84817C">
+      <circle cx="132" cy="540" r="2.5" fill="#4A4844"/><text x="148" y="545">5 scans per day</text>
+      <circle cx="132" cy="578" r="2.5" fill="#4A4844"/><text x="148" y="583">Launch X-Ray &amp; health score</text>
+      <circle cx="132" cy="616" r="2.5" fill="#4A4844"/><text x="148" y="621">Suspect wallet table</text>
+      <circle cx="132" cy="654" r="2.5" fill="#4A4844"/><text x="148" y="659">Share cards</text>
+    </g>
+    <text x="128" y="792" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="1" fill="#ECE9E2">Start scanning</text>
+    <line x1="128" y1="802" x2="270" y2="802" stroke="rgba(255,255,255,.11)" stroke-width="1"/>
+  </g>
+
+  <!-- OPERATOR (featured) -->
+  <g>
+    <rect x="580" y="346" width="440" height="500" rx="18" fill="url(#feat)" stroke="rgba(217,89,74,.45)" stroke-width="1"/>
+    <text x="612" y="408" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="24" fill="#ECE9E2">Operator</text>
+    <!-- popular pill -->
+    <g transform="translate(988 392)">
+      <rect x="-86" y="-18" width="86" height="26" rx="13" fill="none" stroke="rgba(217,89,74,.45)" stroke-width="1"/>
+      <text x="-43" y="-1" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="10" letter-spacing="2" fill="#E87A6A">POPULAR</text>
+    </g>
+    <text x="612" y="462" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="30" fill="#ECE9E2">2 SOL <tspan font-family="'Geist Mono',ui-monospace,monospace" font-size="15" fill="#84817C">/ month</tspan></text>
+    <line x1="612" y1="490" x2="988" y2="490" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <g font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="15.5" fill="#84817C">
+      <circle cx="616" cy="530" r="2.5" fill="#D9594A"/><text x="632" y="535">Unlimited scans</text>
+      <circle cx="616" cy="568" r="2.5" fill="#D9594A"/><text x="632" y="573">Live launch feed access</text>
+      <circle cx="616" cy="606" r="2.5" fill="#D9594A"/><text x="632" y="611">Held-vs-dumped tracking</text>
+      <circle cx="616" cy="644" r="2.5" fill="#D9594A"/><text x="632" y="649">Telegram bot &amp; movement alerts</text>
+      <circle cx="616" cy="682" r="2.5" fill="#D9594A"/><text x="632" y="687">DevRadar deployer cross-link</text>
+    </g>
+    <text x="612" y="808" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="1" fill="#E87A6A">Connect wallet</text>
+    <line x1="612" y1="818" x2="746" y2="818" stroke="rgba(217,89,74,.55)" stroke-width="1"/>
+  </g>
+
+  <!-- SYNDICATE -->
+  <g>
+    <rect x="1064" y="362" width="440" height="468" rx="18" fill="rgba(255,255,255,.015)" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <text x="1096" y="420" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="24" fill="#ECE9E2">Syndicate</text>
+    <text x="1096" y="472" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="600" font-size="30" fill="#ECE9E2">8 SOL <tspan font-family="'Geist Mono',ui-monospace,monospace" font-size="15" fill="#84817C">/ month</tspan></text>
+    <line x1="1096" y1="500" x2="1472" y2="500" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    <g font-family="'Switzer','Segoe UI',Arial,sans-serif" font-size="15.5" fill="#84817C">
+      <circle cx="1100" cy="540" r="2.5" fill="#4A4844"/><text x="1116" y="545">Everything in Operator</text>
+      <circle cx="1100" cy="578" r="2.5" fill="#4A4844"/><text x="1116" y="583">Watchlist &amp; per-token alerts</text>
+      <circle cx="1100" cy="616" r="2.5" fill="#4A4844"/><text x="1116" y="621">Hall-of-shame data feed</text>
+      <circle cx="1100" cy="654" r="2.5" fill="#4A4844"/><text x="1116" y="659">API access</text>
+      <circle cx="1100" cy="692" r="2.5" fill="#4A4844"/><text x="1116" y="697">Priority indexing</text>
+    </g>
+    <text x="1096" y="792" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="1" fill="#ECE9E2">Connect wallet</text>
+    <line x1="1096" y1="802" x2="1230" y2="802" stroke="rgba(255,255,255,.11)" stroke-width="1"/>
+  </g>
+
+  <!-- bottom tagline -->
+  <text x="96" y="872" font-family="'Geist Mono',ui-monospace,monospace" font-size="15" letter-spacing="4" fill="#4A4844">BLOCK-ZERO LAUNCH FORENSICS · SOLANA</text>
+  <text x="1504" y="872" text-anchor="end" font-family="'Geist Mono',ui-monospace,monospace" font-size="16" letter-spacing="1" fill="#84817C">bundlescan.fun/#access</text>
+</svg>

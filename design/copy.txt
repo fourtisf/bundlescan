@@ -151,3 +151,41 @@ Beginilah wujud block zero yang sebenarnya.
 Tiap launch Solana di-X-ray live — bundle, sniper, & insider supply, di-score begitu deploy. Berhenti jadi exit liquidity orang lain.
 
 bundlescan.fun/terminal
+
+
+========================================
+9 · ACCESS / PRICING (pair with banner-access.png)
+========================================
+
+--- PINNED / ACCESS POST (EN) ---
+Scan free. Go deeper on-chain.
+
+Scout is free — 5 scans/day, full Launch X-Ray.
+Operator (2 SOL/mo) unlocks unlimited scans + the live feed + Telegram alerts.
+Syndicate (8 SOL/mo) adds watchlist alerts + API.
+
+bundlescan.fun/#access
+
+--- IMAGE CAPTION ---
+Free forever to scan. Pay in SOL only when you want more.
+
+Scout · Operator · Syndicate — pick your depth.
+bundlescan.fun/#access
+
+--- TIER ONE-LINERS (replies / carousel) ---
+SCOUT — Free. Every paste gets the full Launch X-Ray, health score and suspect-wallet table. 5 scans a day, no wallet needed.
+OPERATOR — 2 SOL/mo. Unlimited scans, the live launch feed, held-vs-dumped tracking, and a Telegram bot that pings you the moment insider supply starts moving.
+SYNDICATE — 8 SOL/mo. Everything in Operator, plus watchlist + per-token alerts, the hall-of-shame data feed, API access and priority indexing.
+
+--- CTAs ---
+Start free → bundlescan.fun
+Go Operator → bundlescan.fun/#access
+
+--- BAHASA INDONESIA ---
+Scan gratis. Gali lebih dalam on-chain.
+
+Scout gratis — 5 scan/hari, Launch X-Ray lengkap.
+Operator (2 SOL/bln): scan unlimited + live feed + alert Telegram.
+Syndicate (8 SOL/bln): + alert watchlist + akses API.
+
+bundlescan.fun/#access
